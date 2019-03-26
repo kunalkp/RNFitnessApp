@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
+  "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://gf-bvs.anonymous.rnfitnessapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.gf-bvs.anonymous.rnfitnessapp.exp.direct",
-  "ngrokPid": 11573,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }
