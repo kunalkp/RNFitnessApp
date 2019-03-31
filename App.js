@@ -1,20 +1,21 @@
-import React from "react";
-import { Platform, View, StatusBar } from "react-native";
-import AddEntry from "./components/AddEntry";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import reducer from "./reducers";
-import History from "./components/History";
+import React from 'react'
+import { Platform, View, StatusBar } from 'react-native'
+import AddEntry from './components/AddEntry'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './reducers'
+import History from './components/History'
 import {
   createBottomTabNavigator,
   createMaterialTopTabNavigator,
   createAppContainer,
   createStackNavigator
-} from "react-navigation";
-import { purple, white } from "./utils/colors";
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { Constants } from "expo";
-import EntryDetail from "./components/EntryDetail";
+} from 'react-navigation'
+import { purple, white } from './utils/colors'
+import { FontAwesome, Ionicons } from '@expo/vector-icons'
+import { Constants } from 'expo'
+import EntryDetail from './components/EntryDetail'
+import Live from './components/Live'
 
 function FitAppStatusBar({ backgroundColor, ...props }) {
   return (
@@ -28,19 +29,26 @@ const RouteConfigs = {
   History: {
     screen: History,
     navigationOptions: {
-      tabBarLabel: "History",
+      tabBarLabel: 'History',
       tabBarIcon: ({ tintColor }) => (
-        <Ionicons name="ios-bookmarks" size={30} color={tintColor} />
+        <Ionicons name='ios-bookmarks' size={30} color={tintColor} />
       )
     }
   },
   AddEntry: {
     screen: AddEntry,
     navigationOptions: {
-      tabBarLabel: "Add Entry",
+      tabBarLabel: 'Add Entry',
       tabBarIcon: ({ tintColor }) => (
-        <FontAwesome name="plus-square" size={30} color={tintColor} />
+        <FontAwesome name='plus-square' size={30} color={tintColor} />
       )
+    }
+  },
+  Live: {
+    screen: Live,
+    navigationOptions: {
+      tabBarLabel: 'Live',
+      tabBarIcon: ({ tintColor }) => <Ionicons name='ios-speedometer' size={30} color={tintColor} />
     }
   }
 };
@@ -51,11 +59,11 @@ const TabNavigatorConfig = {
   },
 
   tabBarOptions: {
-    activeTintColor: Platform.OS === "ios" ? purple : white,
+    activeTintColor: Platform.OS === 'ios' ? purple : white,
     style: {
       height: 56,
-      backgroundColor: Platform.OS === "ios" ? white : purple,
-      shadowColor: "rgba(0, 0, 0, 0.24)",
+      backgroundColor: Platform.OS === 'ios' ? white : purple,
+      shadowColor: 'rgba(0, 0, 0, 0.24)',
       shadowOffset: {
         width: 0,
         height: 3
@@ -67,7 +75,7 @@ const TabNavigatorConfig = {
 };
 
 const Tabs =
-  Platform.OS === "ios"
+  Platform.OS === 'ios'
     ? createBottomTabNavigator(RouteConfigs, TabNavigatorConfig)
     : createMaterialTopTabNavigator(RouteConfigs, TabNavigatorConfig);
 
@@ -96,7 +104,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer)}>
         <View style={{ flex: 1 }}>
-          <FitAppStatusBar backgroundColor={purple} barStyle="light-content" />
+          <FitAppStatusBar backgroundColor={purple} barStyle='light-content' />
           <MainNavigator />
         </View>
       </Provider>
