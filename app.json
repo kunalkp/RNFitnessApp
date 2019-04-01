@@ -23,9 +23,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "org.udacifitness.exp",
       "supportsTablet": true
     },
     "android": {
+      "package": "org.udacifitness.exp",
       "permissions": [
        "ACCESS_FINE_LOCATION",
        "CAMERA",

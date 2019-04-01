@@ -4,7 +4,8 @@ import {
   Text,
   ActivityIndicator,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  Animated
 } from "react-native";
 import { Foundation } from "@expo/vector-icons";
 import { purple, white } from "../utils/colors";
